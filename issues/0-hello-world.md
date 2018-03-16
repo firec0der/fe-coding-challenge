@@ -20,6 +20,6 @@ GUI tools like [Sourcetree](https://www.sourcetreeapp.com/) or [GitKraken](https
 3. **Code**
 
 We like functional programming in Protetiko, so
-it's nice if you (at least) don't mutate your data and do some simple FP things like pure functions, currying, function composition.
+it's nice if you (at least) don't mutate your data and do some simple FP things like pure functions, currying, function composition. You can use [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) or [ramda](https://github.com/ramda/ramda) if you like to.
 
 Please, use some typing (at least for components props) in the project.
