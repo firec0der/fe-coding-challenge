@@ -15,3 +15,14 @@ Ref | Patient | Clinic | Lab | Created at
 Each row mush be clickable, and on click a user must be redirected to the order page (`/orders/:orderId`).
 
 Don't forget to render loader while a loading of the list. Don't implement pagination.
+
+## Sorting
+
+Implement a dropdown with 4 options somewhere above the orders list:
+
+1. Lab (ASC)
+2. Lab (DESC)
+3. Created at (ASC)
+4. Created at (DESC)
+
+Obviously, list should be sorted properly.
