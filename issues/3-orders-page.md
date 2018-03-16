@@ -39,6 +39,8 @@ Filter should implement "includes" logic, so for "foo" query "beforefoo", "fooaf
 3. Patient
 4. Created at (Please, use "YYYY-MM-DD" format for comparison)
 
+There shouldn't be any filters by default.
+
 ## UX
 
 Think about UX, display all the items as you want, make it easy to use.
