@@ -13,7 +13,8 @@ If you do love [redux-saga](redux-saga.js.org) - just do it.
 1. Fork the repo.
 2. Get the API's keys.
 3. Install the dependencies.
-4. Dive into the coding.
+4. Write awesome code.
+5. Deploy to [heroku](heroku.com) with using [CRA buildpack](https://github.com/mars/create-react-app-buildpack)
 
 ### Issues
 1. [Read and follow the conventions and general coding requirements](issues/0-hello-world.md)
