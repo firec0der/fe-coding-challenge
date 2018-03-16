@@ -26,3 +26,15 @@ Implement a dropdown with 4 options somewhere above the orders list:
 4. Created at (DESC)
 
 Obviously, list should be sorted properly.
+
+## Filter
+
+There must be 2 item: the first one - dropdown with types (e.g filter by clinic, lab, etc), the second one is input with value that'll be used for filtering. Filter the list after each typed letter.
+
+Filter should implement "includes" logic, so for "foo" query "beforefoo", "fooafter", "inthefoomiddle" are the possible values. Transform values to lower case.
+
+"Filter by" dropdown options:
+1. Clinic 
+2. Lab
+3. Patient
+4. Created at (Please, use "YYYY-MM-DD" format for comparison)
