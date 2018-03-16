@@ -4,7 +4,7 @@
 Protetiko - is the new standard in dental order management. It's being built to make life of patients and dentists much easier.
 
 We're trying to focus you on coding, and built this project on top of [CRA](https://github.com/facebook/create-react-app) and it's considered to be a start point of your coding.
-We use SCSS here, but you're free to add any CSS tool you love. That's also related to CSS frameworks, you're able to use any framework.
+We use SCSS here, but you're free to add any CSS tool you love. That's also related to CSS frameworks, you're free to use any CSS frameworks and react components.
 
 Regarding the redux, we set up [redux-thunk](https://github.com/gaearon/redux-thunk) for you, because it's the easiest thing in the redux world.
 If you do love [redux-saga](redux-saga.js.org) - just do it.
