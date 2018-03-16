@@ -9,6 +9,8 @@ We use SCSS here, but you're free to add any CSS tool you love. That's also rela
 Regarding the redux, we set up [redux-thunk](https://github.com/gaearon/redux-thunk) for you, because it's the easiest thing in the redux world.
 If you do love [redux-saga](redux-saga.js.org) - just do it.
 
+Also, there is an awesome thing that you have to follow -> [redux ducks](https://github.com/erikras/ducks-modular-redux). It's opionated, but we do love modules in Protetiko.
+
 ### What to do
 1. Fork the repo.
 2. Get the API's keys.
