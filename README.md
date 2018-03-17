@@ -1,9 +1,9 @@
 # Protetiko front-end coding challenge
 
 ### Background
-Protetiko - is the new standard in dental order management. It's being built to make life of patients and dentists much easier.
+Protetiko - is the new standard in dental order management. We build our product to make life of patients and dentists much easier.
 
-We're trying to focus you on coding, and built this project on top of [CRA](https://github.com/facebook/create-react-app) and it's considered to be a start point of your coding.
+Here we want to focus on your coding skills and built this project on top of [CRA](https://github.com/facebook/create-react-app). It's considered to be the starting point of your coding challenge.
 We use SCSS here, but you're free to add any CSS tool you love. That's also related to CSS frameworks, you're free to use any CSS frameworks and react components.
 
 Regarding the redux, we set up [redux-thunk](https://github.com/gaearon/redux-thunk) for you, because it's the easiest thing in the redux world.

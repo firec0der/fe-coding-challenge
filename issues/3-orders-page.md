@@ -1,45 +1,46 @@
 # Orders page
 
-*Note: The API always returns only 10 orders, doesn't support sorting, filtering, pagination.*
+*Note: The "API" always returns only 10 orders, it doesn't support sorting, filtering, pagination. For the sorting and filter requirements below, the respective functionality must be implemented by the client.*
 
 Here will be 3 main features: list of orders, sorting and filter.
 
 ## List of orders
 
 First of all, you need to implement a redux module to fetch and store orders.
-Basicly, it's a table with 5 columns:
+
+Displaying the list is basically a table with 5 columns:
 
 Ref | Patient | Clinic | Lab | Created at
 --- | ------- | ------ | --- | ----------
 
-Each row mush be clickable, and on click a user must be redirected to the order page (`/orders/:orderId`).
+Each row mush be clickable, and onClick a user must be redirected to the order page (`/orders/:orderId`).
 
-Don't forget to render loader while a loading of the list. Don't implement pagination.
+Don't forget to render loader while loading of the list. Pagination should not be implemented.
 
 ## Sorting
 
-Implement a dropdown with 4 options somewhere above the orders list:
-
-1. Lab (ASC)
-2. Lab (DESC)
-3. Created at (ASC)
-4. Created at (DESC)
+- Implement a dropdown with 4 options:
+  1. Lab (ASC)
+  2. Lab (DESC)
+  3. Created at (ASC)
+  4. Created at (DESC)
+- Dropdown must be located somewhere above the orders list.
 
 Obviously, list should be sorted properly.
 
 ## Filter
 
-There must be 2 item: the first one - dropdown with types (e.g filter by clinic, lab, etc), the second one is input with value that'll be used for filtering. Filter the list after each typed letter.
-
-Filter should implement "includes" logic, so for "foo" query "beforefoo", "fooafter", "inthefoomiddle" are the possible values. Transform values to lower case.
-
-"Filter by" dropdown options:
-1. Clinic 
-2. Lab
-3. Patient
-4. Created at (Please, use "YYYY-MM-DD" format for comparison)
-
-There shouldn't be any filters by default.
+- Implement a dropdown with types to filter by (e.g filter by clinic, lab, etc).
+- Implement a input field with value that'll be used for filtering. Filter the list after each typed letter.
+- Filter must be located somewhere above the orders list.
+- Filter must implement "includes" logic, so for "foo" query "beforefoo", "fooafter", "inthefoomiddle" are the possible values.
+- Filter must be case **in**sensitive.
+- No filter should be applied by default.
+- "Filter by" dropdown options:
+  1. Clinic 
+  2. Lab
+  3. Patient
+  4. Created at (Please, use "YYYY-MM-DD" format for comparison)
 
 ## UX
 
