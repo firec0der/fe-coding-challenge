@@ -1,9 +1,11 @@
+@import "../vars/vars.scss";
+
 .Main {
   min-height: 100vh;
   background-color: #444;
 
   &__content {
-    min-height: 100vh;
+    min-height: calc(100vh - #{$header-height});
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;

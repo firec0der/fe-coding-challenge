@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Main extends React.PureComponent {
+import Header from '../Header/Header.js';
+
+export default class Main extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
@@ -9,6 +11,7 @@ export default class Main extends React.PureComponent {
   render() {
     return (
       <div className="Main">
+        <Header />
         <div className="Main__content">
           {this.props.children}
         </div>
