@@ -5,17 +5,18 @@ import { Provider } from 'react-redux';
 import getRouter from './router';
 import store from './store';
 
+import { Main } from './layouts';
+
 export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Main>
         <Provider store={store}>
           { getRouter() }
         </Provider>
-      </div>
+      </Main>
     );
   }
 
 }
-
