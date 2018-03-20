@@ -1,0 +1,35 @@
+.Home {
+  text-align: center;
+
+  &__image {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border: 4px solid #00c4cc;
+    border-radius: 50%;
+  }
+
+  &__title {
+    color: #7d2ae8;
+    font-size: 28px;
+    margin: 15px;
+  }
+
+  &__link {
+    color: #000;
+  }
+
+  &__description {
+    margin: 45px auto 0;
+    max-width: 60ch;
+    opacity: .6;
+  }
+
+  &__tech {
+    max-width: 60ch;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
