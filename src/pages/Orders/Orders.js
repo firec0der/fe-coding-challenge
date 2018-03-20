@@ -34,11 +34,15 @@ export default class OrdersPage extends React.Component {
           Orders page
         </div>
         {this.state.isLoading ? (
-          <div>Loading...</div>
+          <div className="Orders__loading">
+            <div className="Orders__loadingImage" />
+            <div className="Orders__loadingTitle">Loading...</div>
+            <div className="Orders__loadingText">Please wait</div>
+          </div>
         ) : (
           this.state.orders && (
-            <table>
-              <thead>
+            <table className="Orders__table">
+              <thead className="Orders__tableHead">
                 <tr>
                   <th>Ref</th>
                   <th>Patient</th>
@@ -50,7 +54,7 @@ export default class OrdersPage extends React.Component {
               <tbody>
               {this.state.orders.map(order => {
                 return (
-                  <tr key={order.id}>
+                  <tr key={order.id} className="Orders__tableRow">
                     <td>{order.ref_number}</td>
                     <td>{order.patient_name}</td>
                     <td>{order.clinic_name}</td>

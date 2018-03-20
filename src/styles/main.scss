@@ -1,6 +1,9 @@
+/* Layouts import */
 @import "./layouts/Main.scss";
 @import "./layouts/Header.scss";
+/* Pages import */
 @import "./pages/Home.scss";
+@import "./pages/Orders.scss";
 
 * {
   box-sizing: border-box;

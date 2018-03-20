@@ -1,0 +1,52 @@
+@import "../vars/vars.scss";
+
+.Orders {
+
+  &__loading {
+    text-align: center;
+
+    &Image {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      background-image: url('/images/loading.gif');
+      background-size: contain;
+    }
+
+    &Title {
+      color: $color-primary;
+      font-size: 28px;
+      margin: 15px;
+    }
+
+    &Text {
+      color: rgba(0, 0, 0, .6);
+    }
+  }
+
+  &__headline {
+    color: $color-secondary;
+    font-size: 28px;
+    margin: 15px 0 20px;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    &Head {
+      background-color: rgba($color-primary, .5);
+    }
+
+    &Row:hover {
+      background-color: rgba($color-secondary, .2);
+      cursor: pointer;
+    }
+  }
+}
