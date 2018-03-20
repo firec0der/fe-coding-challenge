@@ -20,7 +20,7 @@
     }
 
     &Text {
-      color: rgba(0, 0, 0, .6);
+      color: $color-text;
     }
   }
 
@@ -35,7 +35,7 @@
     border-collapse: collapse;
 
     td, th {
-      border: 1px solid #dddddd;
+      border: 1px solid $color-border;
       text-align: left;
       padding: 8px;
     }
