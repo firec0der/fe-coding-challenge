@@ -1,5 +1,6 @@
 // imports from vendors
 import React from 'react';
+import moment from 'moment';
 
 export default class OrdersPage extends React.Component {
 
@@ -59,7 +60,7 @@ export default class OrdersPage extends React.Component {
                     <td>{order.patient_name}</td>
                     <td>{order.clinic_name}</td>
                     <td>{order.lab_name}</td>
-                    <td>{order.created_at}</td>
+                    <td>{moment(order.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
                   </tr>
                 )
               })}
