@@ -1,8 +1,8 @@
 @import "../vars/vars.scss";
 
 .Header {
-  background: #00c4cc;
-  background-image: linear-gradient(139deg, #00c4cc 0%, #7d2ae8 100%);
+  background: $color-primary;
+  background-image: linear-gradient(139deg, $color-primary 0%, $color-secondary 100%);
   color: #fff;
 
   &__container {
