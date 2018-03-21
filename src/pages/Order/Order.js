@@ -41,39 +41,39 @@ export default class OrderPage extends React.Component {
           <Loading />
         ) : (
           this.state.order && (
-            <table className="Orders__table">
-              <thead className="Orders__tableHead">
+            <table className="Table">
+              <thead className="Table__Head">
               <tr>
                 <th>Property</th>
                 <th>Value</th>
               </tr>
               </thead>
               <tbody>
-              <tr className="Orders__tableRow">
+              <tr className="Table__Row">
                 <td>Ref number</td>
                 <td>{this.state.order.ref_number}</td>
               </tr>
-              <tr className="Orders__tableRow">
+              <tr className="Table__Row">
                 <td>Status</td>
                 <td>{this.state.order.status}</td>
               </tr>
-              <tr className="Orders__tableRow">
+              <tr className="Table__Row">
                 <td>Patient</td>
                 <td>{this.state.order.patient.name}</td>
               </tr>
-              <tr className="Orders__tableRow">
+              <tr className="Table__Row">
                 <td>Clinic</td>
                 <td>{this.state.order.clinic.name}</td>
               </tr>
-              <tr className="Orders__tableRow">
+              <tr className="Table__Row">
                 <td>Lab</td>
                 <td>{this.state.order.lab.name}</td>
               </tr>
-              <tr className="Orders__tableRow">
+              <tr className="Table__Row">
                 <td>Created at</td>
                 <td>{moment(this.state.order.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
               </tr>
-              <tr className="Orders__tableRow">
+              <tr className="Table__Row">
                 <td>Updated at</td>
                 <td>{moment(this.state.order.updated_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
               </tr>

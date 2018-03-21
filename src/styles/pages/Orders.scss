@@ -8,23 +8,7 @@
     margin: 15px 0 20px;
   }
 
-  &__table {
-    width: 100%;
-    border-collapse: collapse;
-
-    td, th {
-      border: 1px solid $color-border;
-      text-align: left;
-      padding: 8px;
-    }
-
-    &Head {
-      background-color: rgba($color-primary, .5);
-    }
-
-    &Row:hover {
-      background-color: rgba($color-secondary, .2);
-      cursor: pointer;
-    }
+  &__Row:hover {
+    cursor: pointer;
   }
 }

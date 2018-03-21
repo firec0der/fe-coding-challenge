@@ -1,0 +1,24 @@
+@import "../vars/vars.scss";
+
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td, th {
+    border: 1px solid $color-border;
+    text-align: left;
+    padding: 8px;
+  }
+
+  &__Head {
+    background-color: rgba($color-primary, .5);
+  }
+
+  &__Row:nth-child(2n) {
+    background-color: rgba($color-primary, .1);
+  }
+
+  &__Row:hover {
+    background-color: rgba($color-secondary, .2);
+  }
+}

@@ -41,8 +41,8 @@ export default class OrdersPage extends React.Component {
           <Loading />
         ) : (
           this.state.orders && (
-            <table className="Orders__table">
-              <thead className="Orders__tableHead">
+            <table className="Table">
+              <thead className="Table__Head">
                 <tr>
                   <th>Ref</th>
                   <th>Patient</th>
@@ -54,7 +54,7 @@ export default class OrdersPage extends React.Component {
               <tbody>
               {this.state.orders.map(order => {
                 return (
-                  <tr key={order.id} className="Orders__tableRow">
+                  <tr key={order.id} className="Table__Row Orders__Row">
                     <td>{order.ref_number}</td>
                     <td>{order.patient_name}</td>
                     <td>{order.clinic_name}</td>
