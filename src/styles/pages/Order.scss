@@ -8,6 +8,14 @@
     margin: 15px 0 20px;
   }
 
+  &__status {
+    color: $color-success;
+  }
+
+  &__closed  {
+    color: $color-error;
+  }
+
   &__error {
     text-align: center;
 

@@ -60,7 +60,11 @@ export default class OrderPage extends React.Component {
               </tr>
               <tr className="Table__Row">
                 <td>Status</td>
-                <td>{this.state.order.status}</td>
+                <td
+                  className={this.state.order.status === 'closed' ? 'Order__closed' : 'Order__status'}
+                >
+                  {this.state.order.status}
+                </td>
               </tr>
               <tr className="Table__Row">
                 <td>Patient</td>
