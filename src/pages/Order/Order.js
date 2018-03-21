@@ -1,5 +1,6 @@
 // imports from vendors
 import React from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 // imports from components
@@ -46,53 +47,59 @@ export default class OrderPage extends React.Component {
           <Loading />
         ) : (
           this.state.order ? (
-            <table className="Table">
-              <thead className="Table__Head">
-              <tr>
-                <th>Property</th>
-                <th>Value</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr className="Table__Row">
-                <td>Ref number</td>
-                <td>{this.state.order.ref_number}</td>
-              </tr>
-              <tr className="Table__Row">
-                <td>Status</td>
-                <td
-                  className={this.state.order.status === 'closed' ? 'Order__closed' : 'Order__status'}
-                >
-                  {this.state.order.status}
-                </td>
-              </tr>
-              <tr className="Table__Row">
-                <td>Patient</td>
-                <td>{this.state.order.patient.name}</td>
-              </tr>
-              <tr className="Table__Row">
-                <td>Clinic</td>
-                <td>{this.state.order.clinic.name}</td>
-              </tr>
-              <tr className="Table__Row">
-                <td>Lab</td>
-                <td>{this.state.order.lab.name}</td>
-              </tr>
-              <tr className="Table__Row">
-                <td>Created at</td>
-                <td>{moment(this.state.order.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
-              </tr>
-              <tr className="Table__Row">
-                <td>Updated at</td>
-                <td>{moment(this.state.order.updated_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
-              </tr>
-              </tbody>
-            </table>
+            <div>
+              <table className="Table">
+                <thead className="Table__Head">
+                <tr>
+                  <th>Property</th>
+                  <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr className="Table__Row">
+                  <td>Ref number</td>
+                  <td>{this.state.order.ref_number}</td>
+                </tr>
+                <tr className="Table__Row">
+                  <td>Status</td>
+                  <td
+                    className={this.state.order.status === 'closed' ? 'Order__closed' : 'Order__status'}
+                  >
+                    {this.state.order.status}
+                  </td>
+                </tr>
+                <tr className="Table__Row">
+                  <td>Patient</td>
+                  <td>{this.state.order.patient.name}</td>
+                </tr>
+                <tr className="Table__Row">
+                  <td>Clinic</td>
+                  <td>{this.state.order.clinic.name}</td>
+                </tr>
+                <tr className="Table__Row">
+                  <td>Lab</td>
+                  <td>{this.state.order.lab.name}</td>
+                </tr>
+                <tr className="Table__Row">
+                  <td>Created at</td>
+                  <td>{moment(this.state.order.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
+                </tr>
+                <tr className="Table__Row">
+                  <td>Updated at</td>
+                  <td>{moment(this.state.order.updated_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
+                </tr>
+                </tbody>
+              </table>
+              <Link to="/orders" className="Order__link">&#x21E6; Go back</Link>
+            </div>
           ) : (
-            <div className="Order__error">
-              <div className="Order__errorImage" />
-              <div className="Order__errorTitle">Not found</div>
-              <div className="Order__errorText">Or error occurred</div>
+            <div>
+              <div className="Order__error">
+                <div className="Order__errorImage" />
+                <div className="Order__errorTitle">Not found</div>
+                <div className="Order__errorText">Or error occurred</div>
+              </div>
+              <Link to="/orders" className="Order__link">&#x21E6; Go back</Link>
             </div>
           )
         )}
