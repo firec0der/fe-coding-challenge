@@ -23,7 +23,6 @@ export default class OrdersPage extends React.Component {
     })
       .then(resp => resp.json())
       .then(orders => {
-        console.log(orders);
         this.setState({
           orders,
           isLoading: false,
@@ -54,7 +53,11 @@ export default class OrdersPage extends React.Component {
               <tbody>
               {this.state.orders.map(order => {
                 return (
-                  <tr key={order.id} className="Table__Row Orders__Row">
+                  <tr
+                    key={order.id}
+                    className="Table__Row Orders__Row"
+                    onClick={() => this.props.history.push(`/orders/${order.id}`)}
+                  >
                     <td>{order.ref_number}</td>
                     <td>{order.patient_name}</td>
                     <td>{order.clinic_name}</td>

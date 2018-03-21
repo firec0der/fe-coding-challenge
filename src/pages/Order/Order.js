@@ -23,7 +23,6 @@ export default class OrderPage extends React.Component {
     })
       .then(resp => resp.json())
       .then(order => {
-        console.log(order);
         this.setState({
           order,
           isLoading: false,
