@@ -2,7 +2,7 @@
 
 .Main {
   min-height: 100vh;
-  background-color: #444;
+  background-color: $color-background;
 
   &__content {
     min-height: calc(100vh - #{$header-height});

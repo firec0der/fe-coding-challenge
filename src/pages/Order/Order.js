@@ -23,23 +23,29 @@ export default class OrderPage extends React.Component {
     })
       .then(resp => resp.json())
       .then(order => {
-        this.setState({
-          order,
-          isLoading: false,
-        });
+        if (order.id) {
+          this.setState({
+            order,
+            isLoading: false,
+          });
+        } else {
+          this.setState({
+            isLoading: false,
+          });
+        }
       });
   }
 
   render() {
     return (
-      <div className="Orders">
-        <div className="Orders__headline">
+      <div className="Order">
+        <div className="Order__headline">
           Order page
         </div>
         {this.state.isLoading ? (
           <Loading />
         ) : (
-          this.state.order && (
+          this.state.order ? (
             <table className="Table">
               <thead className="Table__Head">
               <tr>
@@ -78,6 +84,12 @@ export default class OrderPage extends React.Component {
               </tr>
               </tbody>
             </table>
+          ) : (
+            <div className="Order__error">
+              <div className="Order__errorImage" />
+              <div className="Order__errorTitle">Not found</div>
+              <div className="Order__errorText">Or error occurred</div>
+            </div>
           )
         )}
       </div>
