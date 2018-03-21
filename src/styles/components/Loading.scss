@@ -1,0 +1,23 @@
+@import "../vars/vars.scss";
+
+.Loading {
+  text-align: center;
+
+  &__Image {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    background-image: url('/images/loading.gif');
+    background-size: contain;
+  }
+
+  &__Title {
+    color: $color-primary;
+    font-size: 28px;
+    margin: 15px;
+  }
+
+  &__Text {
+    color: $color-text;
+  }
+}

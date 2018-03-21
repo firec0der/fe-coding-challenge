@@ -4,6 +4,8 @@
 /* Pages import */
 @import "./pages/Home.scss";
 @import "./pages/Orders.scss";
+/* Components import */
+@import "./components/Loading.scss";
 
 * {
   box-sizing: border-box;

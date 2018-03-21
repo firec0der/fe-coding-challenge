@@ -2,28 +2,6 @@
 
 .Orders {
 
-  &__loading {
-    text-align: center;
-
-    &Image {
-      width: 200px;
-      height: 200px;
-      margin: 20px auto;
-      background-image: url('/images/loading.gif');
-      background-size: contain;
-    }
-
-    &Title {
-      color: $color-primary;
-      font-size: 28px;
-      margin: 15px;
-    }
-
-    &Text {
-      color: $color-text;
-    }
-  }
-
   &__headline {
     color: $color-secondary;
     font-size: 28px;

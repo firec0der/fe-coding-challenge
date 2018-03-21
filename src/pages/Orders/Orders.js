@@ -2,6 +2,9 @@
 import React from 'react';
 import moment from 'moment';
 
+// imports from components
+import { Loading } from '../../components';
+
 export default class OrdersPage extends React.Component {
 
   constructor(props) {
@@ -35,11 +38,7 @@ export default class OrdersPage extends React.Component {
           Orders page
         </div>
         {this.state.isLoading ? (
-          <div className="Orders__loading">
-            <div className="Orders__loadingImage" />
-            <div className="Orders__loadingTitle">Loading...</div>
-            <div className="Orders__loadingText">Please wait</div>
-          </div>
+          <Loading />
         ) : (
           this.state.orders && (
             <table className="Orders__table">
