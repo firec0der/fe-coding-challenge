@@ -1,33 +1,31 @@
 // imports from vendors
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import moment from 'moment';
+
+import { fetchOrdersWithRedux } from '../../modules/orders.js';
 
 // imports from components
 import { Loading } from '../../components';
 
-export default class OrdersPage extends React.Component {
+class OrdersPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       orders: null,
       isLoading: true,
+      error: false,
     };
   }
 
   componentWillMount() {
-    fetch('https://18d9382a-0730-4340-952c-340f90890c88.mock.pstmn.io/orders', {
-      headers: {
-        'x-api-key': 'f747cdbe08f3497395174d140b3fa1f4',
-      },
-    })
-      .then(resp => resp.json())
-      .then(orders => {
-        this.setState({
-          orders,
-          isLoading: false,
-        });
-      });
+    this.props.fetchOrdersWithRedux();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.orders);
   }
 
   render() {
@@ -75,3 +73,8 @@ export default class OrdersPage extends React.Component {
   }
 
 }
+
+const mapStateToProps = (state) => ({ test: state.test, orders: state.orders, });
+const mapDispatchToProps = dispatch => ( bindActionCreators({ fetchOrdersWithRedux }, dispatch) );
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrdersPage);
