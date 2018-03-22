@@ -8,7 +8,7 @@ import moment from 'moment';
 import { fetchSingleOrderWithRedux } from '../../modules/singleOrder.js';
 
 // imports from components
-import { Loading } from '../../components';
+import { Loading, Error } from '../../components';
 
 class OrderPage extends React.Component {
 
@@ -38,7 +38,12 @@ class OrderPage extends React.Component {
         {this.state.isLoading ? (
           <Loading />
         ) : (
-          !this.state.error ? (
+          this.state.error ? (
+            <div>
+              <Error />
+              <Link to="/orders" className="Order__link">&#x21E6; Go back</Link>
+            </div>
+          ) : (
             <div>
               <table className="Table">
                 <thead className="Table__Head">
@@ -82,15 +87,6 @@ class OrderPage extends React.Component {
                 </tr>
                 </tbody>
               </table>
-              <Link to="/orders" className="Order__link">&#x21E6; Go back</Link>
-            </div>
-          ) : (
-            <div>
-              <div className="Order__error">
-                <div className="Order__errorImage" />
-                <div className="Order__errorTitle">Not found</div>
-                <div className="Order__errorText">Or error occurred</div>
-              </div>
               <Link to="/orders" className="Order__link">&#x21E6; Go back</Link>
             </div>
           )

@@ -22,44 +22,4 @@
     color: #000;
     text-decoration: none;
   }
-
-  &__error {
-    text-align: center;
-
-    &Image {
-      width: 200px;
-      height: 200px;
-      margin: 20px auto;
-      position: relative;
-
-      &:before, &:after {
-        content: '';
-        width: 15px;
-        height: 150px;
-        border-radius: 3px;
-        background-color: $color-error;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-      }
-
-      &:before {
-        transform: translate(-50%, -50%)rotate(45deg);
-      }
-
-      &:after {
-        transform: translate(-50%, -50%)rotate(-45deg);
-      }
-    }
-
-    &Title {
-      color: $color-error;
-      font-size: 28px;
-      margin: 15px;
-    }
-
-    &Text {
-      color: $color-text;
-    }
-  }
 }

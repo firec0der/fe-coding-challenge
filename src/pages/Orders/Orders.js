@@ -7,7 +7,7 @@ import moment from 'moment';
 import { fetchOrdersWithRedux } from '../../modules/orders.js';
 
 // imports from components
-import { Loading } from '../../components';
+import { Loading, Error } from '../../components';
 
 class OrdersPage extends React.Component {
 
@@ -37,7 +37,9 @@ class OrdersPage extends React.Component {
         {this.state.isLoading ? (
           <Loading />
         ) : (
-          this.state.orders && (
+          this.state.error ? (
+            <Error />
+          ) : (
             <table className="Table">
               <thead className="Table__Head">
                 <tr>

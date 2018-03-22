@@ -1,0 +1,41 @@
+@import "../vars/vars.scss";
+
+.Error {
+  text-align: center;
+
+  &__Image {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    position: relative;
+
+    &:before, &:after {
+      content: '';
+      width: 15px;
+      height: 150px;
+      border-radius: 3px;
+      background-color: $color-error;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+
+    &:before {
+      transform: translate(-50%, -50%)rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%)rotate(-45deg);
+    }
+  }
+
+  &__Title {
+    color: $color-error;
+    font-size: 28px;
+    margin: 15px;
+  }
+
+  &__Text {
+    color: $color-text;
+  }
+}
