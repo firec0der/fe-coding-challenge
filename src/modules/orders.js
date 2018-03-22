@@ -11,16 +11,13 @@ const fetchOrdersSuccess = (payload) => ({ type: "FETCH_SUCCESS", payload });
 const fetchOrdersError = () => ({ type: "FETCH_ERROR" });
 
 const orders = (state = {}, action) => {
-  switch (action.type) {
-    case "FETCH_REQUEST":
-      return { ...state, isLoading: true, error: null };
-    case "FETCH_SUCCESS":
-      return {...state, orders: action.payload, isLoading: false, error: null};
-    case "FETCH_ERROR":
-      return {...state, orders: null, isLoading: false, error: true};
-    default:
-      return state;
-  }
+  const index = {
+    "FETCH_REQUEST": () => ({ ...state, isLoading: true, error: null }),
+    "FETCH_SUCCESS": () => ({...state, orders: action.payload, isLoading: false, error: null}),
+    "FETCH_ERROR": () => ({...state, orders: null, isLoading: false, error: true}),
+    'DEFAULT': () => (state),
+  };
+  return (index[action.type] || index['DEFAULT'])();
 };
 
 export const fetchOrdersWithRedux = () => (
