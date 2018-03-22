@@ -1,40 +1,32 @@
 // imports from vendors
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+
+import { fetchSingleOrderWithRedux } from '../../modules/singleOrder.js';
 
 // imports from components
 import { Loading } from '../../components';
 
-export default class OrderPage extends React.Component {
+class OrderPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      order: null,
+      singleOrder: null,
       isLoading: true,
+      error: false,
     };
   }
 
   componentWillMount() {
-    fetch(`https://18d9382a-0730-4340-952c-340f90890c88.mock.pstmn.io/orders/${this.props.match.params.orderId}`, {
-      headers: {
-        'x-api-key': 'f747cdbe08f3497395174d140b3fa1f4',
-      },
-    })
-      .then(resp => resp.json())
-      .then(order => {
-        if (order.id) {
-          this.setState({
-            order,
-            isLoading: false,
-          });
-        } else {
-          this.setState({
-            isLoading: false,
-          });
-        }
-      });
+    this.props.fetchSingleOrderWithRedux(this.props.match.params.orderId);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.singleOrder);
   }
 
   render() {
@@ -46,7 +38,7 @@ export default class OrderPage extends React.Component {
         {this.state.isLoading ? (
           <Loading />
         ) : (
-          this.state.order ? (
+          !this.state.error ? (
             <div>
               <table className="Table">
                 <thead className="Table__Head">
@@ -58,35 +50,35 @@ export default class OrderPage extends React.Component {
                 <tbody>
                 <tr className="Table__Row">
                   <td>Ref number</td>
-                  <td>{this.state.order.ref_number}</td>
+                  <td>{this.state.singleOrder.ref_number}</td>
                 </tr>
                 <tr className="Table__Row">
                   <td>Status</td>
                   <td
-                    className={this.state.order.status === 'closed' ? 'Order__closed' : 'Order__status'}
+                    className={this.state.singleOrder.status === 'closed' ? 'Order__closed' : 'Order__status'}
                   >
-                    {this.state.order.status}
+                    {this.state.singleOrder.status}
                   </td>
                 </tr>
                 <tr className="Table__Row">
                   <td>Patient</td>
-                  <td>{this.state.order.patient.name}</td>
+                  <td>{this.state.singleOrder.patient.name}</td>
                 </tr>
                 <tr className="Table__Row">
                   <td>Clinic</td>
-                  <td>{this.state.order.clinic.name}</td>
+                  <td>{this.state.singleOrder.clinic.name}</td>
                 </tr>
                 <tr className="Table__Row">
                   <td>Lab</td>
-                  <td>{this.state.order.lab.name}</td>
+                  <td>{this.state.singleOrder.lab.name}</td>
                 </tr>
                 <tr className="Table__Row">
                   <td>Created at</td>
-                  <td>{moment(this.state.order.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
+                  <td>{moment(this.state.singleOrder.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
                 </tr>
                 <tr className="Table__Row">
                   <td>Updated at</td>
-                  <td>{moment(this.state.order.updated_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
+                  <td>{moment(this.state.singleOrder.updated_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
                 </tr>
                 </tbody>
               </table>
@@ -108,3 +100,8 @@ export default class OrderPage extends React.Component {
   }
 
 }
+
+const mapStateToProps = (state) => ({ singleOrder: state.singleOrder });
+const mapDispatchToProps = dispatch => ( bindActionCreators({ fetchSingleOrderWithRedux }, dispatch) );
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderPage);
