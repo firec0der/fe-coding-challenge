@@ -5,6 +5,7 @@ const fetchOrders = () => (
     },
   })
     .then(response => Promise.all([response, response.json()]))
+    .catch(error => ([error, {"status": "error"}]))
 );
 const fetchOrdersRequest = () => ({ type: "FETCH_REQUEST" });
 const fetchOrdersSuccess = (payload) => ({ type: "FETCH_SUCCESS", payload });
