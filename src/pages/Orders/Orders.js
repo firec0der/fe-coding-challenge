@@ -17,6 +17,7 @@ class OrdersPage extends React.Component {
       orders: null,
       isLoading: true,
       error: false,
+      sortBy: 'id',
     };
   }
 
@@ -28,12 +29,46 @@ class OrdersPage extends React.Component {
     this.setState(nextProps.orders);
   }
 
+  sortBy = (param) => {
+
+    const dynamicSort = (property) => {
+      let sortOrder = 1;
+      if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+      }
+      return (a, b) => (
+        ((a[property] < b[property])
+            ? -1
+            : (a[property] > b[property])
+              ? 1
+              : 0
+        ) * sortOrder
+      );
+    };
+
+    this.setState({
+      orders: this.state.orders.sort(dynamicSort(param)),
+      sortBy: param,
+    });
+  };
+
   render() {
     return (
       <div className="Orders">
         <div className="Orders__headline">
           Orders page
         </div>
+        <select
+          value={this.state.sortBy}
+          onChange={event => this.sortBy(event.target.value)}
+        >
+          <option value="id">Sort by</option>
+          <option value="lab_name">Lab (ASC)</option>
+          <option value="-lab_name">Lab (DESC)</option>
+          <option value="created_at">Created at (ASC)</option>
+          <option value="-created_at">Created at (DESC)</option>
+        </select>
         {this.state.isLoading ? (
           <Loading />
         ) : (
@@ -76,7 +111,7 @@ class OrdersPage extends React.Component {
 
 }
 
-const mapStateToProps = (state) => ({ test: state.test, orders: state.orders, });
+const mapStateToProps = (state) => ({ orders: state.orders, });
 const mapDispatchToProps = dispatch => ( bindActionCreators({ fetchOrdersWithRedux }, dispatch) );
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrdersPage);
