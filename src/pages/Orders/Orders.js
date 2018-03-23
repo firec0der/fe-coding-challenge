@@ -18,6 +18,8 @@ class OrdersPage extends React.Component {
       isLoading: true,
       error: false,
       sortBy: 'id',
+      filterText: '',
+      filterBy: 'clinic_name',
     };
   }
 
@@ -53,22 +55,68 @@ class OrdersPage extends React.Component {
     });
   };
 
+  filterBy = (searchText, searchBy) => {
+    this.setState({
+      orders: this.props.orders.orders.map((record) => {
+        if (!record[searchBy].match(new RegExp(searchText, 'gi'))) {
+          return null;
+        }
+        return record;
+      }).filter(record => !!record),
+    });
+  };
+
+  applyFilter = () => {
+    this.filterBy(this.state.filterText, this.state.filterBy);
+  };
+
+  pressEnterListener = (e) => {
+    if (e.key === 'Enter') {
+      this.applyFilter();
+    }
+  };
+
   render() {
     return (
       <div className="Orders">
         <div className="Orders__headline">
           Orders page
         </div>
-        <select
-          value={this.state.sortBy}
-          onChange={event => this.sortBy(event.target.value)}
-        >
-          <option value="id">Sort by</option>
-          <option value="lab_name">Lab (ASC)</option>
-          <option value="-lab_name">Lab (DESC)</option>
-          <option value="created_at">Created at (ASC)</option>
-          <option value="-created_at">Created at (DESC)</option>
-        </select>
+        <div className="Orders__controls">
+          <div className="Orders__sort">
+            <select
+              value={this.state.sortBy}
+              onChange={event => this.sortBy(event.target.value)}
+            >
+              <option value="id">Sort by</option>
+              <option value="lab_name">Lab (ASC)</option>
+              <option value="-lab_name">Lab (DESC)</option>
+              <option value="created_at">Created at (ASC)</option>
+              <option value="-created_at">Created at (DESC)</option>
+            </select>
+          </div>
+          <div className="Orders__filter">
+            <select
+              value={this.state.filterBy}
+              onChange={event => this.setState({ filterBy: event.target.value })}
+            >
+              <option value="clinic_name">Clinic</option>
+              <option value="lab_name">Lab</option>
+              <option value="patient_name">Patient</option>
+              <option value="created_at">Created at</option>
+            </select>
+            <input
+              type="text"
+              onChange={event => this.setState({ filterText: event.target.value })}
+              onKeyPress={event => this.pressEnterListener(event)}
+            />
+            <button
+              onClick={() => this.applyFilter()}
+            >
+              filter
+            </button>
+          </div>
+        </div>
         {this.state.isLoading ? (
           <Loading />
         ) : (
