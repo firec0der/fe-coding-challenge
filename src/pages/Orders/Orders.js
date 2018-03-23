@@ -92,6 +92,7 @@ class OrdersPage extends React.Component {
               <div className="Orders__controls">
                 <div className="Orders__sort">
                   <select
+                    className="Orders__select"
                     value={this.state.sortBy}
                     onChange={event => this.sortBy(event.target.value)}
                   >
@@ -104,6 +105,7 @@ class OrdersPage extends React.Component {
                 </div>
                 <div className="Orders__filter">
                   <select
+                    className="Orders__select _filter"
                     value={this.state.filterBy}
                     onChange={event => this.setState({ filterBy: event.target.value })}
                   >
@@ -113,14 +115,16 @@ class OrdersPage extends React.Component {
                     <option value="created_at">Created at</option>
                   </select>
                   <input
+                    className="Orders__input"
                     type="text"
                     onChange={event => this.setState({ filterText: event.target.value })}
                     onKeyPress={event => this.pressEnterListener(event)}
                   />
                   <button
+                    className="Orders__button"
                     onClick={() => this.applyFilter()}
                   >
-                    filter
+                    Filter
                   </button>
                 </div>
               </div>

@@ -3,15 +3,61 @@
 .Orders {
 
   &__headline {
-    color: $color-secondary;
+    color: $color-text;
     font-size: 28px;
     margin: 15px 0 20px;
   }
 
   &__controls {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  &__sort {
     margin-bottom: 15px;
+  }
+
+  &__filter {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  &__select,
+  &__input,
+  &__button {
+    height: 35px;
+    line-height: 35px;
+    outline: none;
+  }
+
+  &__select {
+    background: url("/images/expand-button.svg") center right 10px no-repeat $color-secondary;
+    background-size: 12px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    -webkit-appearance:none;
+    padding: 0 30px 0 10px;
+
+    &._filter {
+      border-radius: 5px 0 0 5px;
+    }
+  }
+
+  &__input {
+    border: 2px solid $color-secondary;
+    padding: 0 7px;
+    margin: 0 -2px;
+  }
+
+  &__button {
+    background-color: $color-secondary;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 0 15px;
+    cursor: pointer;
   }
 
   &__Row:hover {
