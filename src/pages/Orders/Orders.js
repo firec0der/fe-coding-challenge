@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
+// imports from modules
 import { fetchOrdersWithRedux } from '../../modules/orders.js';
 
 // imports from components

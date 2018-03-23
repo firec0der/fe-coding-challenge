@@ -5,17 +5,17 @@ const fetchOrders = () => (
     },
   })
     .then(response => Promise.all([response, response.json()]))
-    .catch(error => ([error, {"status": "error"}]))
+    .catch(error => ([error, {'status': 'error'}]))
 );
-const fetchOrdersRequest = () => ({ type: "FETCH_REQUEST" });
-const fetchOrdersSuccess = (payload) => ({ type: "FETCH_SUCCESS", payload });
-const fetchOrdersError = () => ({ type: "FETCH_ERROR" });
+const fetchOrdersRequest = () => ({ type: 'FETCH_REQUEST' });
+const fetchOrdersSuccess = (payload) => ({ type: 'FETCH_SUCCESS', payload });
+const fetchOrdersError = () => ({ type: 'FETCH_ERROR' });
 
 const orders = (state = {}, action) => {
   const index = {
-    "FETCH_REQUEST": () => ({ ...state, isLoading: true, error: null }),
-    "FETCH_SUCCESS": () => ({...state, orders: action.payload, isLoading: false, error: null}),
-    "FETCH_ERROR": () => ({...state, orders: null, isLoading: false, error: true}),
+    'FETCH_REQUEST': () => ({ ...state, isLoading: true, error: null }),
+    'FETCH_SUCCESS': () => ({...state, orders: action.payload, isLoading: false, error: null}),
+    'FETCH_ERROR': () => ({...state, orders: null, isLoading: false, error: true}),
     'DEFAULT': () => (state),
   };
   return (index[action.type] || index['DEFAULT'])();

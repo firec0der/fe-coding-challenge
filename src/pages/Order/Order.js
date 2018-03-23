@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
+// imports from modules
 import { fetchSingleOrderWithRedux } from '../../modules/singleOrder.js';
 
 // imports from components
@@ -60,7 +61,11 @@ class OrderPage extends React.Component {
                 <tr className="Table__Row">
                   <td>Status</td>
                   <td
-                    className={this.state.singleOrder.status === 'closed' ? 'Order__closed' : 'Order__status'}
+                    className={
+                      this.state.singleOrder.status === 'closed'
+                        ? 'Order__closed'
+                        : 'Order__status'
+                    }
                   >
                     {this.state.singleOrder.status}
                   </td>
@@ -79,11 +84,15 @@ class OrderPage extends React.Component {
                 </tr>
                 <tr className="Table__Row">
                   <td>Created at</td>
-                  <td>{moment(this.state.singleOrder.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
+                  <td>
+                    {moment(this.state.singleOrder.created_at).format('DD.MM.YYYY, hh:mm:ss')}
+                  </td>
                 </tr>
                 <tr className="Table__Row">
                   <td>Updated at</td>
-                  <td>{moment(this.state.singleOrder.updated_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
+                  <td>
+                    {moment(this.state.singleOrder.updated_at).format('DD.MM.YYYY, hh:mm:ss')}
+                  </td>
                 </tr>
                 </tbody>
               </table>
@@ -98,6 +107,8 @@ class OrderPage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ singleOrder: state.singleOrder });
-const mapDispatchToProps = dispatch => ( bindActionCreators({ fetchSingleOrderWithRedux }, dispatch) );
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ fetchSingleOrderWithRedux }, dispatch)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderPage);
