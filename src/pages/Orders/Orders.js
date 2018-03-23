@@ -82,49 +82,50 @@ class OrdersPage extends React.Component {
         <div className="Orders__headline">
           Orders page
         </div>
-        <div className="Orders__controls">
-          <div className="Orders__sort">
-            <select
-              value={this.state.sortBy}
-              onChange={event => this.sortBy(event.target.value)}
-            >
-              <option value="id">Sort by</option>
-              <option value="lab_name">Lab (ASC)</option>
-              <option value="-lab_name">Lab (DESC)</option>
-              <option value="created_at">Created at (ASC)</option>
-              <option value="-created_at">Created at (DESC)</option>
-            </select>
-          </div>
-          <div className="Orders__filter">
-            <select
-              value={this.state.filterBy}
-              onChange={event => this.setState({ filterBy: event.target.value })}
-            >
-              <option value="clinic_name">Clinic</option>
-              <option value="lab_name">Lab</option>
-              <option value="patient_name">Patient</option>
-              <option value="created_at">Created at</option>
-            </select>
-            <input
-              type="text"
-              onChange={event => this.setState({ filterText: event.target.value })}
-              onKeyPress={event => this.pressEnterListener(event)}
-            />
-            <button
-              onClick={() => this.applyFilter()}
-            >
-              filter
-            </button>
-          </div>
-        </div>
         {this.state.isLoading ? (
           <Loading />
         ) : (
           this.state.error ? (
             <Error />
           ) : (
-            <table className="Table">
-              <thead className="Table__Head">
+            <div>
+              <div className="Orders__controls">
+                <div className="Orders__sort">
+                  <select
+                    value={this.state.sortBy}
+                    onChange={event => this.sortBy(event.target.value)}
+                  >
+                    <option value="id">Sort by</option>
+                    <option value="lab_name">Lab (ASC)</option>
+                    <option value="-lab_name">Lab (DESC)</option>
+                    <option value="created_at">Created at (ASC)</option>
+                    <option value="-created_at">Created at (DESC)</option>
+                  </select>
+                </div>
+                <div className="Orders__filter">
+                  <select
+                    value={this.state.filterBy}
+                    onChange={event => this.setState({ filterBy: event.target.value })}
+                  >
+                    <option value="clinic_name">Clinic</option>
+                    <option value="lab_name">Lab</option>
+                    <option value="patient_name">Patient</option>
+                    <option value="created_at">Created at</option>
+                  </select>
+                  <input
+                    type="text"
+                    onChange={event => this.setState({ filterText: event.target.value })}
+                    onKeyPress={event => this.pressEnterListener(event)}
+                  />
+                  <button
+                    onClick={() => this.applyFilter()}
+                  >
+                    filter
+                  </button>
+                </div>
+              </div>
+              <table className="Table">
+                <thead className="Table__Head">
                 <tr>
                   <th>Ref</th>
                   <th>Patient</th>
@@ -132,25 +133,26 @@ class OrdersPage extends React.Component {
                   <th>Lab</th>
                   <th>Created at</th>
                 </tr>
-              </thead>
-              <tbody>
-              {this.state.orders.map(order => {
-                return (
-                  <tr
-                    key={order.id}
-                    className="Table__Row Orders__Row"
-                    onClick={() => this.props.history.push(`/orders/${order.id}`)}
-                  >
-                    <td>{order.ref_number}</td>
-                    <td>{order.patient_name}</td>
-                    <td>{order.clinic_name}</td>
-                    <td>{order.lab_name}</td>
-                    <td>{moment(order.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
-                  </tr>
-                )
-              })}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                {this.state.orders.map(order => {
+                  return (
+                    <tr
+                      key={order.id}
+                      className="Table__Row Orders__Row"
+                      onClick={() => this.props.history.push(`/orders/${order.id}`)}
+                    >
+                      <td>{order.ref_number}</td>
+                      <td>{order.patient_name}</td>
+                      <td>{order.clinic_name}</td>
+                      <td>{order.lab_name}</td>
+                      <td>{moment(order.created_at).format('DD.MM.YYYY, hh:mm:ss')}</td>
+                    </tr>
+                  )
+                })}
+                </tbody>
+              </table>
+            </div>
           )
         )}
       </div>

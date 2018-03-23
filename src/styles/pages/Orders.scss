@@ -8,6 +8,12 @@
     margin: 15px 0 20px;
   }
 
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
   &__Row:hover {
     cursor: pointer;
   }
